@@ -92,6 +92,32 @@
       },
       "tags": []
     },
+    "plants-data-access": {
+      "projectType": "library",
+      "root": "libs/plants/data-access",
+      "sourceRoot": "libs/plants/data-access/src",
+      "prefix": "home",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/plants/data-access"],
+          "options": {
+            "jestConfig": "libs/plants/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/plants/data-access/src/**/*.ts",
+              "libs/plants/data-access/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["home", "plants"]
+    },
     "plants-e2e": {
       "root": "apps/plants-e2e",
       "sourceRoot": "apps/plants-e2e/src",
@@ -119,6 +145,32 @@
       },
       "tags": [],
       "implicitDependencies": ["plants"]
+    },
+    "plants-features": {
+      "projectType": "library",
+      "root": "libs/plants/features",
+      "sourceRoot": "libs/plants/features/src",
+      "prefix": "home",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/plants/features"],
+          "options": {
+            "jestConfig": "libs/plants/features/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/plants/features/src/**/*.ts",
+              "libs/plants/features/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["home", "plants"]
     }
   }
 }
