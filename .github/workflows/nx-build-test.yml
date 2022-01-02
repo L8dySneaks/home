@@ -1,4 +1,4 @@
-name: CI
+name: Nx Build and Test
 on:
   push:
     branches:
@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  main:
+  nx-non-pr:
     runs-on: ubuntu-latest
     if: ${{ github.event_name != 'pull_request' }}
     steps:
@@ -22,7 +22,7 @@ jobs:
       - run: npm install
       - run: npx nx affected --target=build --parallel --max-parallel=3
       - run: npx nx affected --target=test --parallel --max-parallel=2
-  pr:
+  nx-pr:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'pull_request' }}
     steps:
