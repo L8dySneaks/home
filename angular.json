@@ -171,6 +171,128 @@
         }
       },
       "tags": ["home", "plants"]
+    },
+    "renovations": {
+      "projectType": "application",
+      "root": "apps/renovations",
+      "sourceRoot": "apps/renovations/src",
+      "prefix": "home",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/renovations",
+            "index": "apps/renovations/src/index.html",
+            "main": "apps/renovations/src/main.ts",
+            "polyfills": "apps/renovations/src/polyfills.ts",
+            "tsConfig": "apps/renovations/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/renovations/src/favicon.ico",
+              "apps/renovations/src/assets"
+            ],
+            "styles": ["apps/renovations/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/renovations/src/environments/environment.ts",
+                  "with": "apps/renovations/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "renovations:build:production"
+            },
+            "development": {
+              "browserTarget": "renovations:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "renovations:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/renovations/src/**/*.ts",
+              "apps/renovations/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/renovations"],
+          "options": {
+            "jestConfig": "apps/renovations/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "renovations-e2e": {
+      "root": "apps/renovations-e2e",
+      "sourceRoot": "apps/renovations-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/renovations-e2e/cypress.json",
+            "devServerTarget": "renovations:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "renovations:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/renovations-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["renovations"]
     }
   }
 }

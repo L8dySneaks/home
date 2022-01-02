@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@home/plants/features": ["libs/plants/features/src/index.ts"],
-      "@home/plants/data-access": ["libs/plants/data-access/src/index.ts"]
+      "@home/plants/data-access": ["libs/plants/data-access/src/index.ts"],
+      "@home/plants/features": ["libs/plants/features/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
