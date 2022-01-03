@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@home/plants/data-access": ["libs/plants/data-access/src/index.ts"],
-      "@home/plants/features": ["libs/plants/features/src/index.ts"]
+      "@home/plants/features": ["libs/plants/features/src/index.ts"],
+      "@rennovations": ["libs/rennovations/features/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

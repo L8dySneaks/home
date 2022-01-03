@@ -9,9 +9,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/plants",
             "index": "apps/plants/src/index.html",
@@ -19,10 +17,7 @@
             "polyfills": "apps/plants/src/polyfills.ts",
             "tsConfig": "apps/plants/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "apps/plants/src/favicon.ico",
-              "apps/plants/src/assets"
-            ],
+            "assets": ["apps/plants/src/favicon.ico", "apps/plants/src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "apps/plants/src/styles.scss"
@@ -91,9 +86,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/plants"
-          ],
+          "outputs": ["coverage/apps/plants"],
           "options": {
             "jestConfig": "apps/plants/jest.config.js",
             "passWithNoTests": true
@@ -110,9 +103,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/plants/data-access"
-          ],
+          "outputs": ["coverage/libs/plants/data-access"],
           "options": {
             "jestConfig": "libs/plants/data-access/jest.config.js",
             "passWithNoTests": true
@@ -128,10 +119,7 @@
           }
         }
       },
-      "tags": [
-        "home",
-        "plants"
-      ]
+      "tags": ["home", "plants"]
     },
     "plants-e2e": {
       "root": "apps/plants-e2e",
@@ -152,20 +140,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/plants-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/plants-e2e/**/*.{js,ts}"]
           }
         }
       },
       "tags": [],
-      "implicitDependencies": [
-        "plants"
-      ]
+      "implicitDependencies": ["plants"]
     },
     "plants-features": {
       "projectType": "library",
@@ -175,9 +157,7 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/plants/features"
-          ],
+          "outputs": ["coverage/libs/plants/features"],
           "options": {
             "jestConfig": "libs/plants/features/jest.config.js",
             "passWithNoTests": true
@@ -193,10 +173,33 @@
           }
         }
       },
-      "tags": [
-        "home",
-        "plants"
-      ]
+      "tags": ["home", "plants"]
+    },
+    "rennovations-features": {
+      "projectType": "library",
+      "root": "libs/rennovations/features",
+      "sourceRoot": "libs/rennovations/features/src",
+      "prefix": "reno",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/rennovations/features"],
+          "options": {
+            "jestConfig": "libs/rennovations/features/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/rennovations/features/src/**/*.ts",
+              "libs/rennovations/features/src/**/*.html"
+            ]
+          }
+        }
+      },
+      "tags": ["scope: home", "type:lib"]
     },
     "renovations": {
       "projectType": "application",
@@ -206,9 +209,7 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/renovations",
             "index": "apps/renovations/src/index.html",
@@ -288,9 +289,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/renovations"
-          ],
+          "outputs": ["coverage/apps/renovations"],
           "options": {
             "jestConfig": "apps/renovations/jest.config.js",
             "passWithNoTests": true
@@ -318,20 +317,14 @@
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "apps/renovations-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/renovations-e2e/**/*.{js,ts}"]
           }
         }
       },
       "tags": [],
-      "implicitDependencies": [
-        "renovations"
-      ]
+      "implicitDependencies": ["renovations"]
     }
   }
 }
